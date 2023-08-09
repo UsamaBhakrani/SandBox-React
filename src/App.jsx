@@ -2,6 +2,8 @@
 //UPDATING OBJECTS//
 //UPDATING NESTED OBJECTS//
 
+import { useState } from "react";
+
 // const App = () => {
 // const [customer, setCustomer] = useState({
 //   name: "John",
@@ -137,18 +139,94 @@
 
 // export default App;
 
-import Form from "./Form";
-import CardComponent from "./CardComponent";
+// import Form from "./Form";
+// import CardComponent from "./CardComponent";
+
+// const App = () => {
+//   return (
+//     <div style={{display:'flex'}}>
+//       <Form />
+//       <CardComponent />
+//       <CardComponent />
+//       <CardComponent />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// const App = () => {
+//   const [customer, setCustomer] = useState({
+//     name: "John",
+//     address: { city: "NewYork", zipcode: 91218 },
+//   });
+
+//   const handleOnClick = () => {
+//     setCustomer({
+//       ...customer,
+//       address: { city:'New Mexico', zipcode: 900325 },
+//     });
+//   };
+
+//   console.log(customer)
+
+//   return (
+//     <div>
+//       <h1>{customer.address.city}</h1>
+//       <h1>{customer.address.zipcode}</h1>
+//       <button onClick={handleOnClick}>Click Me</button>
+//     </div>
+//   );
+// };
+
+// export default App;
 
 const App = () => {
+  const [animal, setAnimal] = useState(["cat", "dog", "giraffe", "borka"]);
+
+  const handleAdd = () => {
+    setAnimal([...animal, "bork", "mog"]);
+  };
+
+  const handleRemove = () => {
+    setAnimal([animal.filter((ani) => ani !== "cat")]);
+  };
+
+  const handleUpdate = () => {
+    setAnimal([animal.map((ani) => (ani === "dog" ? "lion" : ani))]);
+  };
+
   return (
-    <div style={{display:'flex'}}>
-      <Form />
-      <CardComponent />
-      <CardComponent />
-      <CardComponent />
+    <div>
+      <ul>
+        {animal.map((ani) => {
+          return <li key={ani}>{ani}</li>;
+        })}
+      </ul>
+      <button onClick={handleAdd}>Add Animal</button>
+      <button onClick={handleRemove}>Remove Animal</button>
+      <button onClick={handleUpdate}>Update Animal</button>
     </div>
   );
 };
-
 export default App;
+
+// const App = () => {
+//   const [bugs, setBugs] = useState([
+//     { id: 1, title: "Bug1", isFixed: false },
+//     { id: 2, title: "Bug2", isFixed: false },
+//   ]);
+//   console.log(bugs);
+
+//   const handleOnClick = () => {
+//     setBugs(
+//       bugs.map((bug) => (bug.id === 1 ? { ...bug, isFixed: true } : bug))
+//     );
+//   };
+
+//   return (
+//     <div>
+//       <h1></h1>
+//       <button onClick={handleOnClick}>Click Me</button>
+//     </div>
+//   );
