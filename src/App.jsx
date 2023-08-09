@@ -181,52 +181,54 @@ import { useState } from "react";
 
 // export default App;
 
-const App = () => {
-  const [animal, setAnimal] = useState(["cat", "dog", "giraffe", "borka"]);
-
-  const handleAdd = () => {
-    setAnimal([...animal, "bork", "mog"]);
-  };
-
-  const handleRemove = () => {
-    setAnimal([animal.filter((ani) => ani !== "cat")]);
-  };
-
-  const handleUpdate = () => {
-    setAnimal([animal.map((ani) => (ani === "dog" ? "lion" : ani))]);
-  };
-
-  return (
-    <div>
-      <ul>
-        {animal.map((ani) => {
-          return <li key={ani}>{ani}</li>;
-        })}
-      </ul>
-      <button onClick={handleAdd}>Add Animal</button>
-      <button onClick={handleRemove}>Remove Animal</button>
-      <button onClick={handleUpdate}>Update Animal</button>
-    </div>
-  );
-};
-export default App;
-
 // const App = () => {
-//   const [bugs, setBugs] = useState([
-//     { id: 1, title: "Bug1", isFixed: false },
-//     { id: 2, title: "Bug2", isFixed: false },
-//   ]);
-//   console.log(bugs);
+//   const [animal, setAnimal] = useState(["cat", "dog", "giraffe", "borka"]);
 
-//   const handleOnClick = () => {
-//     setBugs(
-//       bugs.map((bug) => (bug.id === 1 ? { ...bug, isFixed: true } : bug))
-//     );
+//   const handleAdd = () => {
+//     setAnimal([...animal, "bork", "mog"]);
+//   };
+
+//   const handleRemove = () => {
+//     setAnimal([animal.filter((ani) => ani !== "cat")]);
+//   };
+
+//   const handleUpdate = () => {
+//     setAnimal([animal.map((ani) => (ani === "dog" ? "lion" : ani))]);
 //   };
 
 //   return (
 //     <div>
-//       <h1></h1>
-//       <button onClick={handleOnClick}>Click Me</button>
+//       <ul>
+//         {animal.map((ani) => {
+//           return <li key={ani}>{ani}</li>;
+//         })}
+//       </ul>
+//       <button onClick={handleAdd}>Add Animal</button>
+//       <button onClick={handleRemove}>Remove Animal</button>
+//       <button onClick={handleUpdate}>Update Animal</button>
 //     </div>
 //   );
+// };
+// export default App;
+
+const App = () => {
+  const [bugs, setBugs] = useState([
+    { id: 1, title: "Bug1", isFixed: false },
+    { id: 2, title: "Bug2", isFixed: false },
+  ]);
+  console.log(bugs);
+
+  const handleOnClick = () => {
+    setBugs(
+      bugs.map((bug) => (bug.id === 1 ? { ...bug, isFixed: true } : bug))
+    );
+  };
+
+  return (
+    <div>
+      <h1></h1>
+      <button onClick={handleOnClick}>Click Me</button>
+    </div>
+  );
+};
+export default App;
